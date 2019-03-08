@@ -4,6 +4,9 @@ export const ERROR = 'ERROR';
 export const GETTING_SMURFS = 'GETTING_SMURFS';
 export const GET_SMURFS = 'GET_SMURFS';
 
+export const ADDING_SMURF = 'ADDING_SMURF';
+export const ADD_SMURF = 'ADD_SMURF';
+
 export const getSmurfs = () => {
   const smurfs = axios.get('http://localhost:3333/smurfs')
     return dispatch => {
@@ -16,4 +19,18 @@ export const getSmurfs = () => {
         dispatch({ type: ERROR, payload: err });
       });
     };
+};
+
+export const addSmurf = smurf => {
+  const newSmurf = axios.post('http://localhost:3333/smurfs', smurf )
+  return dispatch => {
+    dispatch({ type: ADDING_SMURF });
+      newSmurf
+    .then(({ data }) => {
+      dispatch({ type: ADD_SMURF, payload: data });
+    })
+    .catch(err => {
+      dispatch({ type: ERROR, payload: err });
+    });
+  };
 };

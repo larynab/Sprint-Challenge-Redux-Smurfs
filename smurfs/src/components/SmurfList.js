@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getSmurfs } from '../actions';
 
 import Smurf from './Smurf';
+import SmurfForm from './SmurfForm';
 
 class SmurfList extends React.Component {
     componentDidMount() {
@@ -11,6 +12,8 @@ class SmurfList extends React.Component {
     render() {
         return (
             <div>
+                <h1>Add a Smurf</h1>
+                <SmurfForm />
                 <h1>Smurf List</h1>
                 {this.props.gettingSmurfs ? (
               <h3>Getting Smurfs</h3>

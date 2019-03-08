@@ -3,9 +3,6 @@ import { ERROR, GETTING_SMURFS, GET_SMURFS } from '../actions';
 const initialState = {
    smurfs: [],
    gettingSmurfs: false,
-  //  addingSmurf: false,
-  //  updatingSmurf: false,
-  //  deletingSmurf: false,
    error: null
  };
 
